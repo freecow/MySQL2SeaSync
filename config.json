@@ -1,0 +1,46 @@
+{
+  "seatable": {
+    "table_name": "确认收入",
+    "name_column": "合同编号"
+  },
+  "chunk_size": 900,
+  "data_mappings": [
+    {
+      "description": "主表数据",
+      "sql_query": [
+        "SELECT",
+        "  ptc.contract_code,",
+        "  ptc.total_project_name,",
+        "  ptc.contract_year,",
+        "  IFNULL(ptc.contract_amount, '') AS contract_amount",
+        "FROM project_total_contract ptc",
+        "WHERE ptc.contract_year IN (2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024);"
+      ],
+      "field_mappings": {
+        "contract_code": "合同编号",
+        "total_project_name": "项目名称",
+        "contract_amount": "合同金额",
+        "contract_year": "年份"
+      }
+    },
+    {
+      "description": "pro_tag表数据",
+      "sql_query": [
+        "SELECT",
+        "pro_code,",
+        "GROUP_CONCAT(tag_content SEPARATOR ', ') AS tags",
+        "FROM pro_tag",
+        "GROUP BY pro_code;"
+      ],
+      "field_mappings": {
+        "pro_code": "合同编号",
+        "tags": "标签"
+      },
+      "merge_rules": {
+        "merge_into": "主表数据",
+        "on": "合同编号",
+        "target_field": "标签"
+      }
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+seatable-api
+pymysql
+python-dotenv
