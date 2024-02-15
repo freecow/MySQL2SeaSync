@@ -1,6 +1,8 @@
 # Memo File
 Memo.*
 memo.*
+Memo*.*
+memo*.*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

@@ -22,7 +22,7 @@ seatable_config = {
 }
 
 # Load configurations
-with open('config.json', 'r') as f:
+with open('memo-contract.json', 'r') as f:
     config = json.load(f)
 
 seatable_mappings = config['seatable']

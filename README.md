@@ -8,6 +8,7 @@ MySQL2SeaSync is a powerful and efficient tool designed to automate the process 
 - **自动数据同步**：从MySQL中自动提取数据到Seatable云端。
 - **配置驱动**：通过简单的JSON配置，定制化需同步的数据字段。
 - **安全性**：敏感信息如数据库凭证、API密钥等存放在`.env`文件，避免硬编码。
+- **松耦合**：将业务逻辑放在JSON配置文件中，不同的需求采用不同的配置文件。
 
 ## 安装
 
@@ -141,7 +142,7 @@ SEATABLE_API_TOKEN请参考Seatable官方开发文档。
 
 ## 使用
 
-Seatable中配置好相应的表格，如上例中配置表名为`确认收入`，字段包括`合同编号`、`项目名称`、`合同金额`、`年份`、`标签`。
+Seatable中配置好相应的表格，如上例中配置Seatable表名为`确认收入`，字段包括`合同编号`、`项目名称`、`合同金额`、`年份`、`标签`。
 
 MySQL中配置好相应的连接，并确保相应的表中有数据。
 
